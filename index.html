@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DownCare | Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<div class="profile clickable" onclick="window.location.href='profile.html'">
+<img src="https://cdn-icons-png.flaticon.com/512/847/847969.png">
+
+<h3 id="sidebarName"></h3>
+
+</div>
+
+
+<ul class="menu">
+
+<li>
+<a href="#" onclick="showSection('home'); return false;">
+Home
+</a>
+</li>
+
+<li>
+<a href="#" onclick="showSection('detection'); return false;">
+Detection
+</a>
+</li>
+
+<li>
+<a href="awareness.html">
+Awareness
+</a>
+</li>
+
+<li>
+<a href="#" onclick="showSection('learning'); return false;">
+Learning
+</a>
+</li>
+
+<li>
+<a href="statistics.html">
+Statistics
+</a>
+</li>
+</ul>
+
+<li onclick="showSection('history'); loadHistory();">
+Detection History
+</li>
+</div>
+
+
+<!-- MAIN CONTENT -->
+
+<div class="main-content">
+
+<!-- ================= DOWNCARE HOME ================= -->
+
+<div id="home" class="content-section">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-left">
+
+            <h1 class="logo-title">
+                DownCare
+            </h1>
+
+            <h2 class="hero-heading">
+                AI-Assisted Early Screening
+                for Down Syndrome
+            </h2>
+
+            <p class="hero-subtext">
+                Non-invasive facial screening powered by deep learning
+                with explainable AI visualization to support early
+                developmental assessment.
+            </p>
+
+            <button onclick="goToDetection()" class="primary-btn">
+                Start Screening
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- HOW IT WORKS -->
+
+    <section class="workflow">
+
+        <h2>Screening Pipeline</h2>
+
+        <div class="pipeline">
+
+            <div class="pipeline-step">
+                <div class="pipeline-icon">01</div>
+                <p>Image Upload</p>
+                <span>User submits facial photograph</span>
+            </div>
+
+            <div class="pipeline-line"></div>
+
+            <div class="pipeline-step">
+                <div class="pipeline-icon">02</div>
+                <p>Face Detection</p>
+                <span>MTCNN extracts facial region</span>
+            </div>
+
+            <div class="pipeline-line"></div>
+
+            <div class="pipeline-step">
+                <div class="pipeline-icon">03</div>
+                <p>Model Prediction</p>
+                <span>Transfer learning with VGG16</span>
+            </div>
+
+            <div class="pipeline-line"></div>
+
+            <div class="pipeline-step">
+                <div class="pipeline-icon">04</div>
+                <p>Visual Explanation</p>
+                <span>Grad-CAM heatmap output</span>
+            </div>
+
+        </div>
+
+    </section>
+
+<footer class="footer-mini">
+
+    <span class="footer-brand">DownCare</span>
+
+    <span class="footer-divider">|</span>
+
+    <span class="footer-text">
+        AI-assisted screening support only. Not a clinical diagnosis tool.
+    </span>
+
+    <span class="footer-divider">|</span>
+
+    <a href="awareness.html" class="footer-link">
+        Awareness Guide
+    </a>
+
+</footer>
+
+</div>
+<!-- DETECTION SECTION -->
+
+<div id="detection" class="content-section" style="display:none;">
+
+<button class="back-home-btn"
+onclick="showSection('home')">
+⬅ Back to Home
+</button>
+
+<h2>Down Syndrome Detection</h2>
+
+<p class="description">
+Upload a facial image for AI-based Down Syndrome detection.
+</p>
+
+<hr>
+
+<h3>Upload Facial Image</h3>
+
+<input type="file" id="imageUpload" accept="image/*">
+
+<br><br>
+
+<button onclick="predictImage()">
+Predict
+</button>
+
+<p id="result" class="result">
+Prediction result will appear here.
+</p>
+
+<!-- NEW IMAGE OUTPUT AREA -->
+
+<div id="imageResults" style="display:none; margin-top:20px;">
+
+<h3>Original Image</h3>
+<img id="originalImage" width="250">
+
+<h3>Grad-CAM Visualization</h3>
+<img id="gradcamImage" width="250">
+
+</div>
+
+</div>
+
+<div id="history" class="content-section" style="display:none;">
+
+<h2>Detection History</h2>
+
+<table id="historyTable">
+
+<thead>
+<tr>
+<th>Date</th>
+<th>Prediction</th>
+<th>Confidence</th>
+<th>Original</th>
+<th>Grad-CAM</th>
+</tr>
+</thead>
+
+<tbody></tbody>
+
+</table>
+
+</div>
+<!-- LEARNING -->
+<div id="learning" class="content-section" style="display:none;">
+
+    <h2>Cognitive Learning & Development Suite</h2>
+
+    <!-- MAIN MODULE MENU -->
+    <div id="learningMenu" class="main-learning-menu">
+
+        <button class="big-module-btn" onclick="openModule('memory')">
+            🧠 Working Memory
+        </button>
+
+        <button class="big-module-btn" onclick="openModule('emotion')">
+            😊 Emotion Intelligence
+        </button>
+
+        <button class="big-module-btn" onclick="openModule('flashcard')">
+            📘 Language Flashcards
+        </button>
+
+        <button class="big-module-btn" onclick="openModule('pattern')">
+            🔢 Pattern Intelligence
+        </button>
+
+        <button class="big-module-btn" onclick="openModule('puzzle')">
+            🧩 Puzzles
+        </button>
+        
+        
+
+    </div>
+
+
+    <!-- ================= MEMORY ================= -->
+    <div id="memoryModule" class="learning-module" style="display:none;">
+
+    <button class="back-btn" onclick="goBack()">⬅ Back to Modules</button>
+
+    <h3>Adaptive Working Memory Training</h3>
+
+    <div class="memory-controls">
+        <label>Select Level:</label>
+        <select id="difficulty" onchange="startClickMemory()">
+            <option value="" disabled selected>Select Level</option>
+            <option value="easy">Easy (2 items)</option>
+            <option value="medium">Medium (3 items)</option>
+            <option value="hard">Hard (4 items)</option>
+        </select>
+    </div>
+
+    <div id="memoryBoard" class="memory-board"></div>
+    <p id="memoryStatus"></p>
+
+    <div class="module-nav">
+        <button onclick="startClickMemory()">Next Question</button>
+    </div>
+
+</div>
+
+
+    <!-- ================= EMOTION ================= -->
+    <div id="emotionModule" class="learning-module" style="display:none;">
+
+        <button class="back-btn" onclick="goBack()">⬅ Back to Modules</button>
+
+        <h3>Emotion Recognition & Social Reasoning</h3>
+
+        <div class="memory-controls">
+            <label>Select Level:</label>
+            <select id="emotionLevel" onchange="loadEmotion()">
+                <option value="" disabled selected>Select Level</option>
+                <option value="easy">Easy (Basic Emotion)</option>
+                <option value="medium">Medium (Situations)</option>
+                <option value="hard">Hard (Context Reasoning)</option>
+            </select>
+        </div>
+
+        <div id="emotionDisplay" class="emotion-display"></div>
+        <div id="emotionOptions"></div>
+
+        <div class="module-nav">
+            <button onclick="loadEmotion()">Next Question</button>
+        </div>
+
+        <p id="emotionScore"></p>
+
+    </div>
+
+
+    <!-- ================= FLASHCARDS ================= -->
+    <div id="flashcardModule" class="learning-module" style="display:none;">
+
+        <button class="back-btn" onclick="goBack()">⬅ Back to Modules</button>
+
+        <h3>Language & Cognitive Reinforcement</h3>
+        <div class="module-nav">
+         <button onclick="setFlashMode('study')">📘 Study Mode</button>
+         <button onclick="setFlashMode('quiz')">📝 Quiz Mode</button>
+        </div>
+
+<div id="quizArea"></div>
+
+        <div class="memory-controls">
+            <label>Select Category:</label>
+            <select id="flashCategory" onchange="changeCategory()">
+                <option value="" disabled selected>Select Category</option>
+                <option value="animals">Animals</option>
+                <option value="science">Science</option>
+                <option value="shapes">Shapes</option>
+                <option value="countries">Countries</option>
+                <option value="space">Space</option>
+                <option value="health">Health</option>
+
+
+                
+            </select>
+        </div>
+
+        <div id="flashcard" class="flashcard" onclick="flipFlashcard()">
+            Select a category to begin
+        </div>
+
+        <div class="module-nav">
+            <button onclick="prevCard()">Previous</button>
+            <button onclick="repeatWord()">🔊 Repeat</button>
+            <button onclick="nextCard()">Next</button>
+        </div>
+
+    </div>
+
+
+    <!-- ================= PATTERN ================= -->
+    <div id="patternModule" class="learning-module" style="display:none;">
+
+        <button class="back-btn" onclick="goBack()">⬅ Back to Modules</button>
+
+        <h3>Logical Pattern Intelligence</h3>
+
+        <div class="memory-controls">
+            <label>Select Level:</label>
+            <select id="patternLevel" onchange="loadPattern()">
+                <option value="" disabled selected>Select Level</option>
+                <option value="easy">Easy (Visual Pattern)</option>
+                <option value="medium">Medium (Number Progression)</option>
+                <option value="hard">Hard (Advanced Sequence)</option>
+            </select>
+        </div>
+
+        <div id="patternQuestion" class="emotion-display"></div>
+        <div id="patternOptions"></div>
+
+        <div class="module-nav">
+            <button onclick="loadPattern()">Next Question</button>
+        </div>
+
+        <p id="patternResult"></p>
+
+    </div>
+
+    <!-- ================= PUZZLES ================= -->
+<div id="puzzleModule" class="learning-module" style="display:none;">
+
+    <button class="back-btn" onclick="goBack()">⬅ Back to Modules</button>
+
+    <h3>Puzzle Challenge</h3>
+
+    <div class="memory-controls">
+        <label>Select Level:</label>
+        <select id="puzzleLevel" onchange="loadPuzzle()">
+            <option value="" disabled selected>Select Level</option>
+            <option value="easy">Easy (Odd One Out)</option>
+            <option value="medium">Medium (Reaction Puzzle)</option>
+            <option value="hard">Hard (Maze Puzzle)</option>
+        </select>
+    </div>
+
+    <div id="puzzleArea"></div>
+
+<div class="module-nav">
+    <button onclick="loadPuzzle()">Next Question</button>
+</div>
+
+<p id="puzzleResult"></p>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+</div>
+<script>
+function goToDetection(){
+
+    document.querySelectorAll(".content-section")
+        .forEach(section => section.style.display="none");
+
+    document.getElementById("detection").style.display="block";
+
+    window.scrollTo({top:0, behavior:"smooth"});
+}
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

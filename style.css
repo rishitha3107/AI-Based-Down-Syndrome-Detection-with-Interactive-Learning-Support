@@ -1,0 +1,742 @@
+/* ================= GLOBAL ================= */
+
+body {
+    margin: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #f4f8fc;
+    color: #2c3e50;
+}
+
+.container {
+    display: flex;
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: white;
+    color: #2c3e50;
+    position: fixed;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.profile {
+    text-align: center;
+    padding: 25px 15px;
+    border-bottom: 1px solid #e3eaf2;
+}
+
+.profile img {
+    width: 75px;
+    border-radius: 50%;
+    border: 2px solid #1976d2;
+}
+
+.profile h3 {
+    margin: 10px 0 5px;
+    color: #1976d2;
+}
+
+.profile p {
+    font-size: 13px;
+    color: #666;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.clickable:hover {
+    background-color: #f1f6fb;
+}
+
+/* ================= MENU ================= */
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.menu li {
+    padding: 14px 25px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.menu li:hover {
+    background-color: #f1f6fb;
+    border-left: 4px solid #1976d2;
+    padding-left: 21px;
+}
+
+.menu li a {
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.menu li a:hover {
+    color: #1976d2;
+}
+
+/* ================= MAIN CONTENT ================= */
+
+.main-content {
+    margin-left: 250px;
+    padding: 40px 8%;
+    width: calc(100% - 250px);
+}
+
+.content-section {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+    margin-bottom: 25px;
+}
+
+/* ================= HEADINGS ================= */
+
+h2 {
+    color: #1976d2;
+}
+
+h3 {
+    color: #1976d2;
+}
+
+/* ================= TEXT ================= */
+
+.description {
+    line-height: 1.7;
+    color: #555;
+}
+
+/* ================= DASHBOARD ================= */
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.dash-card {
+    background: white;
+    border-left: 4px solid #1976d2;
+    padding: 20px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.dash-card:hover {
+    transform: translateY(-5px);
+}
+
+/* ================= STEPS ================= */
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.step {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+
+/* ================= BUTTONS ================= */
+
+button {
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #125ea6;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* ================= SELECT ================= */
+
+select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #d0d7e2;
+    background: white;
+    color: #2c3e50;
+}
+
+/* ================= MEMORY GAME ================= */
+
+.memory-controls {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.memory-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 80px);
+    justify-content: center;
+    gap: 15px;
+}
+
+.memory-card {
+    width: 80px;
+    height: 80px;
+    background-color: #1976d2;
+    color: white;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.memory-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.memory-card.flipped {
+    background-color: #125ea6;
+}
+
+.memory-status {
+    margin-top: 20px;
+    font-weight: 600;
+    color: #1976d2;
+}
+
+/* ================= LEARNING MODULE ================= */
+
+.learning-module {
+    margin-top: 25px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+    animation: moduleFade 0.35s ease;
+}
+
+/* ================= EMOTION ================= */
+
+.emotion-display {
+    font-size: 60px;
+    margin: 20px 0;
+    font-weight: 600;
+    color: #1976d2;
+}
+
+/* ================= FLASHCARDS ================= */
+
+.flashcard {
+    font-size: 40px;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+    margin: 20px 0;
+}
+
+/* ================= PATTERN ================= */
+
+#patternQuestion {
+    font-size: 28px;
+    margin: 20px 0;
+    font-weight: 600;
+    color: #1976d2;
+}
+
+/* ================= MODULE MENU ================= */
+
+.main-learning-menu {
+    display: grid;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* ================= LEARNING CATEGORY BUTTONS FIX ================= */
+
+.big-module-btn{
+    display:block;
+    width:100%;
+    background:white;
+    color:#2c3e50;   /* ensures text is always visible */
+    border:none;
+    padding:22px;
+    margin-bottom:15px;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:600;
+    text-align:left;
+    box-shadow:0 4px 25px rgba(0,0,0,0.06);
+    transition:0.3s ease;
+}
+
+.big-module-btn:hover{
+    background:#e3f2fd;  /* soft awareness-theme hover */
+    transform:translateY(-4px);
+}
+
+/* ================= BACK BUTTON ================= */
+
+.back-btn {
+    margin-bottom: 20px;
+    background-color: #777;
+}
+
+.back-btn:hover {
+    background-color: #555;
+}
+
+/* ================= MODULE NAV ================= */
+
+.module-nav {
+    margin-top: 20px;
+}
+
+.module-nav button {
+    background: #1976d2;
+}
+
+.module-nav button:hover {
+    background: #125ea6;
+}
+
+/* ================= PROGRESS BAR ================= */
+
+.progress-container {
+    width: 100%;
+    height: 12px;
+    background: #e0e0e0;
+    border-radius: 20px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+#progressBar {
+    height: 100%;
+    width: 0%;
+    background: #4caf50;
+    transition: 0.5s ease;
+}
+
+/* ================= RESULT BOX ================= */
+
+.result-box {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    opacity: 0;
+    font-weight: 600;
+    transition: 0.4s ease;
+}
+
+/* ================= MODULE FADE ================= */
+
+@keyframes moduleFade {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= CLICKABLE CARD ================= */
+
+.clickable-card {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg,#1976d2,#125ea6);
+    color: white;
+    font-size: 30px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.clickable-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.clickable-card.clicked {
+    background: #90a4ae;
+    transform: scale(0.95);
+}
+
+/* ================= PAGE HEADER STYLE ================= */
+
+.content-section h2{
+    font-size:28px;
+    margin-bottom:20px;
+    position:relative;
+}
+
+/* underline accent like awareness page */
+.content-section h2::after{
+    content:"";
+    width:60px;
+    height:3px;
+    background:#1976d2;
+    display:block;
+    margin-top:8px;
+    border-radius:2px;
+}
+
+/* ================= LEARNING CATEGORY GRID ================= */
+
+.main-learning-menu{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
+}
+
+/* ================= CATEGORY CARDS ================= */
+
+.big-module-btn{
+    background:linear-gradient(to right,#e3f2fd,#ffffff);
+    border-left:5px solid #1976d2;
+    font-size:18px;
+    letter-spacing:0.3px;
+}
+
+/* subtle glow effect */
+.big-module-btn:hover{
+    background:linear-gradient(to right,#d7ecff,#ffffff);
+    transform:translateY(-6px) scale(1.01);
+    box-shadow:0 12px 35px rgba(25,118,210,0.15);
+}
+
+/* ================= MEMORY / FLASHCARD / PATTERN MODULE CONTAINERS ================= */
+
+.learning-module{
+    background:linear-gradient(to bottom,#ffffff,#f8fbff);
+    border:1px solid #e3eef9;
+}
+
+/* ================= DROPDOWN LABEL STYLE ================= */
+
+.memory-controls label{
+    font-weight:600;
+    color:#1976d2;
+}
+
+/* ================= STATUS TEXT EMPHASIS ================= */
+
+#memoryStatus,
+#emotionScore,
+#patternResult,
+#puzzleResult{
+    font-weight:600;
+    margin-top:15px;
+    color:#1976d2;
+}
+
+/* ================= INPUT FILE STYLE (Detection Section) ================= */
+
+input[type="file"]{
+    background:white;
+    padding:10px;
+    border-radius:6px;
+    border:1px solid #d0d7e2;
+}
+
+/* ================= RESULT TEXT CARD ================= */
+
+.result{
+    margin-top:20px;
+    padding:15px;
+    border-radius:10px;
+    background:#e3f2fd;
+    color:#1976d2;
+    font-weight:600;
+}
+
+/* ================= PROFILE CARD ENHANCEMENT ================= */
+
+.profile{
+    background:linear-gradient(to bottom,#ffffff,#f8fbff);
+}
+
+/* ================= DASHBOARD STEP CARDS ================= */
+
+.step{
+    transition:0.3s ease;
+}
+
+.step:hover{
+    transform:translateY(-4px);
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* ================= SECTION TRANSITION ANIMATION ================= */
+
+.content-section{
+    animation:fadeSlide 0.4s ease;
+}
+
+@keyframes fadeSlide{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* HERO PANEL */
+
+.home-hero{
+    background:linear-gradient(to right,#e3f2fd,#ffffff);
+    padding:25px;
+    border-radius:12px;
+    margin-top:20px;
+    margin-bottom:25px;
+}
+
+/* BENEFITS GRID */
+
+.benefits{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+    margin-top:15px;
+}
+
+.benefit-card{
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.05);
+    transition:0.3s;
+}
+
+.benefit-card:hover{
+    transform:translateY(-4px);
+}
+
+/* DISCLAIMER CARD */
+
+.info-card{
+    background:#fff8e1;
+    border-left:5px solid #ff9800;
+    padding:18px;
+    border-radius:10px;
+    margin-top:20px;
+}
+
+/* QUICK ACTION BUTTONS */
+
+.quick-actions{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:15px;
+}
+
+.back-home-btn{
+background:#1976d2;
+color:white;
+border:none;
+padding:8px 16px;
+border-radius:6px;
+font-size:14px;
+margin-bottom:15px;
+cursor:pointer;
+transition:0.3s ease;
+}
+
+.back-home-btn:hover{
+background:#125ea6;
+}
+
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:90px 120px;
+    background:linear-gradient(120deg,#f5f9ff,#eaf1ff);
+}
+
+.logo-title{
+    font-size:48px;
+    font-weight:700;
+    color:#2563eb;
+}
+
+.hero-heading{
+    font-size:34px;
+    margin:15px 0;
+}
+
+.hero-subtext{
+    font-size:18px;
+    color:#5f6c7b;
+    margin-bottom:30px;
+}
+
+.primary-btn{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:14px 36px;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.hero-right img{
+    width:420px;
+}
+
+
+
+/* PIPELINE WORKFLOW */
+
+.workflow{
+    padding:90px 100px;
+    text-align:center;
+}
+
+.workflow h2{
+    font-size:30px;
+    margin-bottom:50px;
+}
+
+.pipeline{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.pipeline-step{
+    width:200px;
+}
+
+.pipeline-icon{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:#2563eb;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:auto;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+.pipeline-step p{
+    font-weight:600;
+}
+
+.pipeline-step span{
+    font-size:14px;
+    color:#6b7280;
+}
+
+.pipeline-line{
+    width:80px;
+    height:2px;
+    background:#dbe4f2;
+}
+
+
+
+/* FOOTER */
+
+.footer{
+    background:#0f172a;
+    color:white;
+    padding:50px 100px;
+}
+
+.footer-container{
+    display:flex;
+    justify-content:space-between;
+}
+
+.footer-brand h3{
+    color:#60a5fa;
+}
+
+.footer-links a{
+    display:block;
+    color:#cbd5e1;
+    text-decoration:none;
+    margin:6px 0;
+}
+
+.footer-note{
+    max-width:300px;
+    font-size:14px;
+    color:#94a3b8;
+}
+
+.footer-mini{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+
+    padding:18px 20px;
+
+    background:#f5f7fb;
+
+    font-size:13px;
+    color:#64748b;
+
+    border-top:1px solid #e5e7eb;
+}
+
+.footer-brand{
+    font-weight:600;
+    color:#2563eb;
+}
+
+.footer-divider{
+    color:#cbd5e1;
+}
+
+.footer-link{
+    text-decoration:none;
+    color:#2563eb;
+}
+
+.footer-link:hover{
+    text-decoration:underline;
+}

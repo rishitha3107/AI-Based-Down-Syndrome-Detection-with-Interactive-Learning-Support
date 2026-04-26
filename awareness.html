@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DownCare | Awareness & Guidance</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins', sans-serif;
+}
+
+body{
+background:linear-gradient(to bottom,#f4f8fc,#eaf3ff);
+color:#2c3e50;
+}
+
+/* NAVBAR */
+
+nav{
+background:white;
+padding:15px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+nav h2{
+color:#1976d2;
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+.back-arrow{
+text-decoration:none;
+color:#1976d2;
+font-size:20px;
+font-weight:600;
+}
+
+nav ul{
+list-style:none;
+display:flex;
+gap:25px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#2c3e50;
+font-weight:500;
+}
+
+nav ul li a:hover{
+color:#1976d2;
+}
+
+/* HERO */
+
+.hero{
+padding:80px 8%;
+background:linear-gradient(to right,#e3f2fd,#ffffff);
+display:flex;
+align-items:center;
+justify-content:space-between;
+flex-wrap:wrap;
+}
+
+.hero-text{
+max-width:600px;
+}
+
+.hero h1{
+font-size:42px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:18px;
+line-height:1.7;
+color:#555;
+}
+
+.hero img{
+width:320px;
+}
+
+/* SECTIONS */
+
+.section{
+padding:70px 8%;
+}
+
+.section:nth-child(even){
+background:#f7fbff;
+}
+
+.section h2{
+font-size:28px;
+margin-bottom:30px;
+color:#1976d2;
+}
+
+/* CARDS */
+
+.card{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 4px 25px rgba(0,0,0,0.08);
+margin-bottom:30px;
+transition:0.3s;
+position:relative;
+overflow:hidden;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+/* IMAGE INSIDE CARDS */
+
+.card img.side-img{
+width:260px;
+float:right;
+margin-left:25px;
+border-radius:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.card img.side-img:hover{
+transform:scale(1.05);
+}
+
+/* IMAGE ZOOM MODAL */
+
+.zoom-modal{
+display:none;
+position:fixed;
+z-index:9999;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.85);
+justify-content:center;
+align-items:center;
+}
+
+.zoom-modal img{
+max-width:90%;
+max-height:90%;
+border-radius:10px;
+}
+
+/* BUTTONS */
+
+button{
+padding:12px 22px;
+background:#1976d2;
+border:none;
+border-radius:6px;
+color:white;
+font-size:14px;
+cursor:pointer;
+margin-top:15px;
+transition:0.3s;
+}
+
+button:hover{
+background:#125ea6;
+}
+
+/* PROGRESS BAR */
+
+.progress-container{
+width:100%;
+height:12px;
+background:#e0e0e0;
+border-radius:20px;
+margin-top:20px;
+overflow:hidden;
+}
+
+#progressBar{
+height:100%;
+width:0%;
+background:#4caf50;
+transition:0.5s ease;
+}
+
+.result-box{
+margin-top:15px;
+padding:15px;
+border-radius:8px;
+opacity:0;
+transition:0.4s ease;
+}
+
+
+/* Appearance gallery styling */
+
+.appearance-gallery{
+margin-top:40px;
+text-align:center;
+}
+
+.appearance-gallery h3{
+color:#1976d2;
+margin-bottom:20px;
+}
+
+.appearance-images{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.appearance-images img{
+width:220px;
+border-radius:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.appearance-images img:hover{
+transform:scale(1.05);
+}
+
+.appearance-note{
+margin-top:12px;
+font-size:14px;
+color:#555;
+}
+
+/* FOOTER */
+
+footer{
+background:#1976d2;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:50px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<h2>
+<a href="index.html" class="back-arrow">⬅</a>
+DownCare
+</h2>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#symptoms">Symptoms</a></li>
+<li><a href="#development">Development</a></li>
+<li><a href="#guidance">Guidance</a></li>
+<li><a href="#ai">AI Transparency</a></li>
+<li><a href="#privacy">Privacy</a></li>
+</ul>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h1>Down Syndrome Awareness & Clinical Guidance</h1>
+
+<p>
+Early awareness, structured intervention, and accessible screening tools
+can significantly improve developmental outcomes for children with Down Syndrome.
+This platform combines AI-assisted screening with medical learning support.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+
+<h2>Understanding Down Syndrome</h2>
+
+<div class="card">
+<img class="side-img zoomable"
+src="https://thumbs.dreamstime.com/z/trisomy-249420828.jpg">
+
+Down Syndrome is a genetic condition caused by an extra copy of chromosome 21.
+This additional genetic material affects development and physical growth.
+</p>
+
+<h3>Types of Down Syndrome</h3>
+
+<ul>
+<li>Trisomy 21 – 95% of cases</li>
+<li>Translocation</li>
+<li>Mosaicism</li>
+</ul>
+
+</div>
+
+</section>
+
+
+<!-- SYMPTOMS -->
+
+<section class="section" id="symptoms">
+
+<h2>Early Signs & Awareness Checklist</h2>
+
+<div class="card">
+
+<img class="side-img zoomable"
+src="https://c8.alamy.com/comp/2PDY761/symptoms-of-down-syndrome-vector-infographic-poster-2PDY761.jpg">
+
+<img class="side-img zoomable"
+src="https://i.pinimg.com/originals/67/94/9f/67949fde8c238f388f2c9ca2c0a9b092.jpg">
+
+<img class="side-img zoomable"
+src="https://www.noonansyndrome.org.uk/wp-content/uploads/2022/11/Newborn-e1668428325432.png">
+
+<form id="symptomForm">
+
+<label><input type="checkbox" class="symptom"> Flat facial profile</label><br>
+<label><input type="checkbox" class="symptom"> Upward slanting eyes</label><br>
+<label><input type="checkbox" class="symptom"> Low muscle tone</label><br>
+<label><input type="checkbox" class="symptom"> Single palm crease</label><br>
+<label><input type="checkbox" class="symptom"> Developmental delays</label><br>
+
+<button type="submit">Evaluate Indicators</button>
+
+<button type="button" onclick="clearSelection()" style="background:#777;">
+Clear
+</button>
+
+</form>
+
+<div class="progress-container">
+<div id="progressBar"></div>
+</div>
+
+<div id="percentageText"></div>
+<div id="result" class="result-box"></div>
+
+</div>
+
+</section>
+
+<!-- Appearance Reference Images Section -->
+
+<div class="appearance-gallery">
+
+<h3>
+Children with Down Syndrome at Different Ages
+</h3>
+
+<div class="appearance-images">
+
+<img class="zoomable"
+src="https://img.freepik.com/premium-photo/children-with-different-down-syndrome-their-happiness_1151436-278.jpg">
+
+<img class="zoomable"
+src="https://www.ptckids.com/wp-content/uploads/2019/02/down_syndrome.jpg">
+<img class="zoomable"
+src="http://static-14.sinclairstoryline.com/resources/media/4d66b141-8113-4f93-ab7f-cc9377f28b38-large16x9_31404128_2153496987998990_1808066568874098688_n.jpg?1524775865028">
+
+</div>
+
+<p class="appearance-note">
+Note: Facial characteristics vary across individuals. These examples are for awareness only and not for diagnosis.
+</p>
+
+</div>
+
+
+<!-- DEVELOPMENT -->
+
+<section class="section" id="development">
+
+<h2>Developmental & Medical Considerations</h2>
+
+<div class="card">
+
+<img class="side-img zoomable"
+src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png">
+
+<ul>
+
+<li>Congenital heart defects</li>
+<li>Hearing and vision challenges</li>
+<li>Thyroid dysfunction</li>
+<li>Speech delay</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+<!-- GUIDANCE -->
+
+<section class="section" id="guidance">
+
+<h2>Clinical Guidance & Next Steps</h2>
+
+<div class="card">
+
+<img class="side-img zoomable"
+src="https://cdn-icons-png.flaticon.com/512/3209/3209265.png">
+
+<ul>
+
+<li>Consult pediatrician / genetic specialist</li>
+<li>Speech therapy</li>
+<li>Occupational therapy</li>
+<li>Physiotherapy</li>
+<li>Individualized education planning</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+<!-- AI TRANSPARENCY -->
+
+<section class="section" id="ai">
+
+<h2>AI Screening Transparency</h2>
+
+<div class="card">
+
+<img class="side-img zoomable"
+src="https://cdn-icons-png.flaticon.com/512/2103/2103832.png">
+
+<p>
+
+This system uses deep learning with MTCNN face detection,
+VGG16 transfer learning classification, and Grad-CAM visualization
+to highlight facial regions influencing predictions.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- PRIVACY -->
+
+<section class="section" id="privacy">
+
+<h2>Privacy & Ethical Commitment</h2>
+
+<div class="card">
+
+<ul>
+
+<li>Secure image processing</li>
+<li>No permanent storage of photos</li>
+<li>Strict confidentiality protocols</li>
+<li>Healthcare-compliant data handling</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 DownCare | AI-Based Down Syndrome Detection with Interactive Learning Support
+
+</footer>
+
+
+<!-- IMAGE ZOOM MODAL -->
+
+<div id="zoomModal" class="zoom-modal">
+<img id="zoomedImage">
+</div>
+
+
+<script>
+
+const form=document.getElementById("symptomForm");
+const progressBar=document.getElementById("progressBar");
+const result=document.getElementById("result");
+const percentageText=document.getElementById("percentageText");
+
+/* IMAGE ZOOM SCRIPT 🔍 */
+
+const zoomImages=document.querySelectorAll(".zoomable");
+const modal=document.getElementById("zoomModal");
+const modalImg=document.getElementById("zoomedImage");
+
+zoomImages.forEach(img=>{
+img.addEventListener("click",()=>{
+modal.style.display="flex";
+modalImg.src=img.src;
+});
+});
+
+modal.addEventListener("click",()=>{
+modal.style.display="none";
+});
+
+/* EXISTING FORM SCRIPT */
+
+form.addEventListener("submit",function(event){
+
+event.preventDefault();
+
+let totalSymptoms=5;
+let checked=document.querySelectorAll(".symptom:checked").length;
+let percentage=(checked/totalSymptoms)*100;
+
+progressBar.style.width=percentage+"%";
+
+if(percentage<=40){
+progressBar.style.background="#4caf50";
+}
+else if(percentage<=70){
+progressBar.style.background="#ff9800";
+}
+else{
+progressBar.style.background="#f44336";
+}
+
+percentageText.innerHTML="Severity Level: "+percentage+"%";
+
+result.style.opacity=1;
+
+if(checked===0){
+result.innerHTML="Please select at least one indicator.";
+}
+else if(checked<=2){
+result.innerHTML="Mild indicators observed. Monitoring recommended.";
+}
+else{
+result.innerHTML="Multiple indicators detected. Consult a healthcare professional.";
+}
+
+});
+
+function clearSelection(){
+document.querySelectorAll(".symptom").forEach(cb=>cb.checked=false);
+progressBar.style.width="0%";
+percentageText.innerHTML="";
+result.innerHTML="";
+result.style.opacity=0;
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DownCare | Register</title>
+<link rel="stylesheet" href="./auth.css">
+
+<style>
+
+/* FULL PAGE HEIGHT FIX */
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#f4f7fb;
+overflow:hidden;
+}
+
+
+/* MAIN WRAPPER */
+
+.auth-wrapper{
+width:90%;
+max-width:1000px;
+height:90vh;
+display:flex;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+background:white;
+}
+
+
+/* LEFT PANEL */
+
+.auth-info{
+width:45%;
+padding:40px;
+background:linear-gradient(135deg,#3a7bd5,#00d2ff);
+color:white;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.auth-info h1{
+margin-bottom:15px;
+}
+
+.auth-info ul{
+margin-top:20px;
+padding-left:18px;
+}
+
+
+/* RIGHT PANEL */
+
+.auth-card{
+width:55%;
+padding:30px 40px;
+overflow-y:auto;
+}
+
+
+/* FORM INPUTS */
+
+.input-box{
+display:flex;
+align-items:center;
+border:1px solid #ddd;
+border-radius:8px;
+padding:8px 12px;
+margin-bottom:10px;
+}
+
+.input-box input,
+.input-box select{
+border:none;
+outline:none;
+flex:1;
+font-size:14px;
+background:transparent;
+}
+
+
+/* PASSWORD TOGGLE */
+
+.toggle{
+cursor:pointer;
+margin-left:5px;
+}
+
+
+/* BUTTON */
+
+button{
+width:100%;
+padding:10px;
+border:none;
+border-radius:8px;
+background:#3a7bd5;
+color:white;
+font-size:15px;
+cursor:pointer;
+margin-top:10px;
+}
+
+button:hover{
+background:#2f65b5;
+}
+
+
+/* SMALL TEXT */
+
+.subtitle{
+margin-bottom:15px;
+color:#666;
+}
+
+.switch{
+margin-top:10px;
+font-size:14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="auth-wrapper">
+
+
+<!-- LEFT PANEL -->
+
+<div class="auth-info">
+
+<h1>🧬 DownCare</h1>
+
+<p>
+Create your secure caregiver account to access
+detection tools, awareness guidance, and learning modules.
+</p>
+
+<ul>
+<li>✔ Secure profiles</li>
+<li>✔ Child development tracking</li>
+<li>✔ Early screening support</li>
+</ul>
+
+</div>
+
+
+<!-- RIGHT PANEL -->
+
+<div class="auth-card">
+
+<h2>Register</h2>
+
+<p class="subtitle">
+Create your account
+</p>
+
+
+<form onsubmit="registerUser(event)">
+
+
+<label>Full Name</label>
+
+<div class="input-box">
+<span>👤</span>
+<input type="text" id="regName" placeholder="Enter full name" required>
+</div>
+
+
+<label>Email</label>
+
+<div class="input-box">
+<span>📧</span>
+<input type="email" id="regEmail" placeholder="Enter email" required>
+</div>
+
+
+<label>Gender</label>
+
+<div class="input-box">
+<span>⚧</span>
+
+<select id="regGender">
+<option value="">Select gender</option>
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+
+</div>
+
+
+<label>Age</label>
+
+<div class="input-box">
+<span>🎂</span>
+<input type="number" id="regAge" placeholder="Enter age">
+</div>
+
+
+<label>Phone Number</label>
+
+<div class="input-box">
+<span>📱</span>
+<input type="text" id="regPhone" placeholder="Enter phone number">
+</div>
+
+
+<label>Location</label>
+
+<div class="input-box">
+<span>📍</span>
+<input type="text" id="regLocation" placeholder="Enter city / location">
+</div>
+
+
+<label>Password</label>
+
+<div class="input-box">
+<span>🔒</span>
+<input type="password" id="regPassword" placeholder="Create password" required>
+<span class="toggle" onclick="togglePassword('regPassword')">👁</span>
+</div>
+
+
+<label>Confirm Password</label>
+
+<div class="input-box">
+<span>🔒</span>
+<input type="password" id="confirmPassword" placeholder="Confirm password" required>
+</div>
+
+
+<button type="submit">
+Register
+</button>
+
+</form>
+
+
+<p class="switch">
+Already registered?
+<a href="login.html">Login</a>
+</p>
+
+</div>
+
+</div>
+
+<script src="auth.js"></script>
+
+</body>
+</html>

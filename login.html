@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DownCare | Login</title>
+<link rel="stylesheet" href="./auth.css">
+</head>
+
+<body>
+
+<div class="auth-wrapper">
+
+<!-- LEFT PANEL -->
+
+<div class="auth-info">
+
+<h1>🧬 DownCare</h1>
+
+<p>
+AI-powered platform for Down Syndrome detection,
+awareness, and learning support.
+</p>
+
+<ul>
+<li>✔ AI-assisted detection</li>
+<li>✔ Awareness & guidance</li>
+<li>✔ Learning support</li>
+</ul>
+
+</div>
+
+
+<!-- RIGHT PANEL -->
+
+<div class="auth-card">
+
+<h2>Login</h2>
+
+<p class="subtitle">
+Access your dashboard
+</p>
+
+
+<form onsubmit="loginUser(event)">
+
+
+<label>Email</label>
+
+<div class="input-box">
+<span>📧</span>
+
+<input
+type="email"
+id="loginEmail"
+placeholder="Enter email"
+required>
+
+</div>
+
+
+<label>Password</label>
+
+<div class="input-box">
+
+<span>🔒</span>
+
+<input
+type="password"
+id="loginPassword"
+placeholder="Enter password"
+required>
+
+<span
+class="toggle"
+onclick="togglePassword('loginPassword')">
+👁
+</span>
+
+</div>
+
+
+<button type="submit">
+Login
+</button>
+
+
+</form>
+
+
+<p class="switch">
+
+New user?
+<a href="register.html">Create an account</a>
+
+</p>
+
+</div>
+
+</div>
+
+
+<script src="auth.js"></script>
+
+</body>
+</html>

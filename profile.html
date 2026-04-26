@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>User Profile | DownCare</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.hidden{
+display:none;
+}
+
+.profile-card{
+background:#fff;
+padding:20px;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
+margin-bottom:20px;
+max-width:700px;
+}
+
+.profile-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+margin-top:10px;
+}
+
+.profile-grid input,
+.profile-grid select{
+padding:8px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+.section-title{
+margin-top:25px;
+font-size:18px;
+font-weight:600;
+}
+
+.action-btn{
+margin-top:15px;
+margin-right:10px;
+padding:8px 18px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+background:#2b7cff;
+color:white;
+}
+
+.logout-btn{
+background:#e74c3c;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="main-content">
+
+<button class="back-home-btn"
+onclick="window.location.href='index.html'">
+
+⬅ Back to Dashboard
+
+</button>
+
+
+<h2>User Profile</h2>
+
+
+<!-- ================= VIEW MODE ================= -->
+
+<div id="profileView" class="profile-card">
+
+<h3 class="section-title">Account Information</h3>
+
+<p><b>Name:</b> <span id="profileName"></span></p>
+
+<p><b>Email:</b> <span id="profileEmail"></span></p>
+
+<p><b>Gender:</b> <span id="profileGender">Not Provided</span></p>
+
+<p><b>Age:</b> <span id="profileAge">Not Provided</span></p>
+
+<p><b>Phone:</b> <span id="profilePhone">Not Provided</span></p>
+
+<p><b>Location:</b> <span id="profileLocation">Not Provided</span></p>
+
+
+<button onclick="openEditProfile()" class="action-btn">
+Edit Profile
+</button>
+
+<button onclick="logoutUser()" class="action-btn logout-btn">
+Logout
+</button>
+
+</div>
+
+
+
+<!-- ================= EDIT MODE ================= -->
+
+<div id="profileEdit"
+class="profile-card hidden">
+
+<h3 class="section-title">Edit Profile</h3>
+
+<form onsubmit="saveProfile(event)">
+
+<div class="profile-grid">
+
+<div>
+<label>Name</label>
+<input type="text" id="editName">
+</div>
+
+<div>
+<label>Email</label>
+<input type="email" id="editEmail" readonly>
+</div>
+
+<div>
+<label>Gender</label>
+<select id="editGender">
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+</div>
+
+<div>
+<label>Age</label>
+<input type="number" id="editAge">
+</div>
+
+<div>
+<label>Phone</label>
+<input type="text" id="editPhone">
+</div>
+
+<div>
+<label>Location</label>
+<input type="text" id="editLocation">
+</div>
+
+</div>
+
+
+<br>
+
+<button type="submit" class="action-btn">
+Save Changes
+</button>
+
+<button type="button"
+onclick="cancelEditProfile()"
+class="action-btn logout-btn">
+
+Cancel
+
+</button>
+
+</form>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+<script>
+
+/* SWITCH TO EDIT MODE */
+
+function openEditProfile(){
+
+profileView.classList.add("hidden");
+profileEdit.classList.remove("hidden");
+
+editName.value = profileName.innerText;
+editEmail.value = profileEmail.innerText;
+
+editGender.value = profileGender.innerText;
+editAge.value = profileAge.innerText;
+
+editPhone.value = profilePhone.innerText;
+editLocation.value = profileLocation.innerText;
+
+}
+
+
+/* CANCEL EDIT */
+
+function cancelEditProfile(){
+
+profileEdit.classList.add("hidden");
+profileView.classList.remove("hidden");
+
+}
+
+
+/* SAVE PROFILE */
+
+function saveProfile(event){
+
+event.preventDefault();
+
+const updatedProfile = {
+
+name: editName.value,
+gender: editGender.value,
+age: editAge.value,
+phone: editPhone.value,
+location: editLocation.value
+
+};
+
+
+/*
+If your script.js already has backend update logic,
+call it here like:
+
+updateProfile(updatedProfile);
+*/
+
+profileName.innerText = updatedProfile.name;
+profileGender.innerText = updatedProfile.gender;
+profileAge.innerText = updatedProfile.age;
+profilePhone.innerText = updatedProfile.phone;
+profileLocation.innerText = updatedProfile.location;
+
+
+cancelEditProfile();
+
+}
+
+
+/* LOGOUT FUNCTION (already used by your backend setup) */
+
+function logoutUser(){
+
+localStorage.removeItem("currentUser");
+
+window.location.href = "login.html";
+
+}
+
+async function saveProfile(event){
+
+event.preventDefault();
+
+const user = JSON.parse(localStorage.getItem("user"));
+
+const updatedProfile = {
+
+email: user.email,
+name: document.getElementById("editName").value,
+gender: document.getElementById("editGender").value,
+age: document.getElementById("editAge").value,
+phone: document.getElementById("editPhone").value,
+location: document.getElementById("editLocation").value
+
+};
+
+
+try{
+
+const response = await fetch(
+"http://localhost:5000/api/auth/update-profile",
+{
+method: "PUT",
+headers: {
+"Content-Type": "application/json"
+},
+body: JSON.stringify(updatedProfile)
+}
+);
+
+const data = await response.json();
+
+if(response.ok){
+
+// update localStorage session
+localStorage.setItem(
+"user",
+JSON.stringify(data.user)
+);
+
+alert("Profile updated successfully ✅");
+
+// reload updated values
+location.reload();
+
+}
+else{
+
+alert(data.message);
+
+}
+
+}
+catch(error){
+
+alert("Server error while updating profile");
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
